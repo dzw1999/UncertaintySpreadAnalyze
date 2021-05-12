@@ -1,0 +1,7 @@
+tokenize.whitespace = True
+
+ssplit.eolonly = True
+
+annotators = tokenize,ssplit,pos,lemma,ner,parse,depparse,coref
+
+outputFormat = serialized
