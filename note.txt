@@ -1,0 +1,13 @@
+22/3/13
+今天新建了UncertaintySpreadAnalyze/control3.py
+然后发现运行的时候报
+    C:\Users\wang9\Desktop\gradesign\参考\需求关联关系识别\ReRelationship\remake\venv\lib\site-packages\gensim\similarities\__init__.py:15: UserWarning: The gensim.similarities.levenshtein submodule is disabled, because the optional Levenshtein package <https://pypi.org/project/python-Levenshtein/> is unavailable. Install Levenhstein (e.g. `pip install python-Levenshtein`) to suppress this warning.
+      warnings.warn(msg)
+这样一个错误，同时还开启了client
+于是首先重构getscope，使得不开启client
+然后在venv中安装了 pip install python-Levenshtein
+结果安装失败
+ building 'Levenshtein._levenshtein' extension
+    error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com
+/visual-cpp-build-tools/
+反正只是警告，之后再说吧

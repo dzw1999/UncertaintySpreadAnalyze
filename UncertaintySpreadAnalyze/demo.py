@@ -1,8 +1,8 @@
 import pprint
-import FRAndNFRRelation
+from others import FRAndNFRRelation
 import json
 
-from data import *
+from UncertaintySpreadAnalyze.data import *
 
 
 def get_relationship_014(str1):  # 014 前提 依赖 交互
@@ -35,6 +35,7 @@ def get_relationship_014(str1):  # 014 前提 依赖 交互
 
     pprint.pprint(result)
 
+# 是这个函数 我自己改的 检测交互关系的
 def get_relationship_4(str1):  # 4 交互
 
     global result
@@ -53,7 +54,7 @@ def get_relationship_4(str1):  # 4 交互
             return False
 
         l1=str1.split(", ")
-        l2=str2.split(", ")
+        l2=str2.split(", ") # 'output':"tasks as subtasks, relationship"
         s1=set()
         s2=set()
         for s in l1:
@@ -85,7 +86,7 @@ def get_relationship_4(str1):  # 4 交互
     print(len(result))
     rela4out=r"C:\Users\wang9\Desktop\2\rela4_auto.json"
     with open(rela4out,"w",encoding='UTF-8') as fout:
-        json.dump(result,fout)
+        json.dump(result,fout) #最后输出的是列表包含字典的json
 
 def get_relationship_56(str1, str2):  # 56 约束 实现
     funData, nfunData = [], []

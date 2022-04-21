@@ -1,4 +1,5 @@
-# 这个是之前毕设一直用的getscope
+# 22/3/13晚上开始尝试部分重构，因为每次import这个文件，即使不调用corenlp也会启动client，就很烦
+# 于是把client初始化的代码放到anno_sentence里面去了
 import stanza
 from stanza.server import CoreNLPClient
 import re
@@ -138,7 +139,7 @@ def getscope_child(fnode: tNode, cnode: tNode,reachcnode:bool=False,add_sword:li
 
 def anno_sentence(text,cueinfo):
     def buildTree(tnode: tNode):
-        global leafi
+        global leafi, num2leafnode
         if len(tnode.node.child) == 0:
             tnode.isleaf = True
             num2leafnode[leafi] = tnode
@@ -154,7 +155,7 @@ def anno_sentence(text,cueinfo):
             buildTree(tmptNode)
             i += 1
     def buildDependencies():
-        nonlocal num2leafnode
+        global num2leafnode
         bds = sen.basicDependencies
         for i in range(0, len(bds.edge)):
             edge = bds.edge[i]
@@ -526,10 +527,14 @@ def anno_sentence(text,cueinfo):
             scope, flag = getscope(tnodestart)
         return scope
 
-
-    global leafi
-    leafi=0
-    num2leafnode = {}
+    client = CoreNLPClient(timeout=30000, memory='8G', be_quiet=True,
+                           start_server=stanza.server.StartServer.TRY_START,
+                           properties='C:/Users/wang9/Desktop/gradesign/use/docs/myprop.props')
+    # 吐了 有好几个坑：
+    # 首先 timeout等信息必须直接指定
+    # 其次props文件路径必须全部
+    # 最后必须用斜杠而不是传统的反斜杠
+    client.start()
     # 获取标注结果，建立数据结构
     ann = client.annotate(text)
     sen = ann.sentence[0]
@@ -560,26 +565,11 @@ def anno_sentence(text,cueinfo):
         print("there is no such cue")
         exit(0)
 
+# 全局变量
 leafi=0
+num2leafnode = {}
+index = 0
 
-#stanfordcorenlpclient
-# properties = {
-#         'tokenize.whitespace': True,
-#         'ssplit.eolonly': True
-# }
-# client = CoreNLPClient(
-#     annotators=['tokenize','ssplit', 'pos', 'lemma', 'ner', 'parse', 'depparse', 'coref'],
-#     timeout=30000, memory='8G',
-#     start_server=stanza.server.StartServer.TRY_START, be_quiet=True,
-#     properties=properties)
-client=CoreNLPClient(timeout = 30000,memory = '8G',be_quiet = True,
-start_server = stanza.server.StartServer.TRY_START,
-properties='C:/Users/wang9/Desktop/gradesign/use/docs/myprop.props')
-# 吐了 有好几个坑：
-# 首先 timeout等信息必须直接指定
-# 其次props文件路径必须全部
-# 最后必须用斜杠而不是传统的反斜杠
-client.start()
 if __name__=="__main__":
     issingle=True
     finsentence=open(r"C:\Users\wang9\Desktop\sentence.txt","r",encoding='UTF-8')

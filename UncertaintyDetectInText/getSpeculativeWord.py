@@ -150,7 +150,10 @@ def getCues(sentence):
     code2=r"geniatagger.exe -nt "+config.forgenia+" > "+config.geniaed
     os.system(code1+r"&&"+code2)
     aftergenia()
-    os.system(r"crf_test -m ./files/mymodel9 ./files/fortest.txt > ./files/res.txt")
+    # 这里一开始只有code2 结果发现根本就无法生成新的res.txt 于是改了一下增加了code1
+    code1 = r"cd C:\Users\wang9\Desktop\gradesign\参考\需求关联关系识别\ReRelationship\remake\files"
+    code2 = r"crf_test -m ./mymodel9 ./fortest.txt > ./res.txt"
+    os.system(code1 + r"&&" + code2)
     allcue=readcues()
     return allcue
 

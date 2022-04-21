@@ -1,6 +1,103 @@
-The universal header " warc.h " shall provide normalised interfaces to enable developers to create valid and compliant WARC - records , based on the definition in the " ISO TC 46 / SC 4 N 595 " standards document . The interfaces shall be made available to create WARC records of the following types : - " warinfo " - " response " - " request " - " metadata " - " revisit " - " conversion " - " continuation " - " resource "
-Each WARC - record shall be accessible via a peer C class of the same name .
-The attributes of each WARC - record , as per the ISO standard specification , shall have a corresponding attribute in its peer C class .
-Each peer class shall expose a set a class functions to read , write , and update attributes for the corresponding WARC - record .
-It shall be possible to perform read operations ( read from offset , filters , etc. ) on WARCrecords from a remote location via http .
-It shall be possible to specify non-default operations of " arc2warc " using a named configuration file , which will describe the desired ARC - record to WARC - record conversion .
+A class is used to represent the dependency between one task and one human resource .
+The dependency class may provides functions to get the task and the human resource .
+A collection of resource assignments is used to manage the relationships between multiple human resources and a task .
+A collection of resource assignments contains multiple objects of the human resource assignment class .
+A collection of resource assignments provides functions to add and remove human resource assignments .
+A collection of resource assignments provides functions to add and remove human resource assignments .
+The task class uses an object of the assignments collection class to manage its assignments .
+The human resource class can have objects of resource assignments which assigns this resource to tasks .
+The human resource class provides function to get the list of objects of resource assignments which assigns this resource to tasks .
+Task property GUI class provides interface and functions to add and remove human resource assignments .
+Task property GUI class provides interface and functions to add and remove human resource assignments .
+A GUI class uses an object of resource tree table model class to display the resource tree .
+The resource tree table model provides functions to build subtrees based on dependencies .
+A GUI class of human resource load distribution uses objects of a load distribution class to capture the hours each person is supposed to work .
+The load distribution class provides functions to calculate the distribution based on tasks and human resources using task manager .
+GUI may provide ability to change length of a task .
+User should be able to change the length of a task by dragging - and - dropping the bar on the GUI .
+User should be able to change the length of a task via date picker control .
+A dependency class contains a dependant task and a dependee task .
+A dependency class provides functions to get the dependant task and the dependee task .
+The dependency class also contains constraint to show the start date of the dependee task .
+A class is used to represent the constraint that the start date of the dependee task should not be earlier than the end date of the dependent task .
+A collection of dependency class is used to manage dependencies .
+A collection of dependency class contains objects of dependency classes .
+A collection of dependency class provides functions to create , delete , and get dependencies .
+A collection of dependency class provides functions to create , delete , and get dependencies .
+A collection of dependency class provides functions to create , delete , and get dependencies .
+A task property GUI class provides interface and functions to add and remove dependencies by using an object of the dependency collection .
+A task property GUI class provides interface and functions to add and remove dependencies by using an object of the dependency collection .
+A graphic area GUI class provides function to draw dependency .
+A graphic area GUI class uses an object of task manager to add dependencies .
+The task manager class uses an object of dependency collection class to manage dependencies .
+An object of the recalculating task schedule algorithm class is used to change the start / end date based on dependency changes .
+The algorithm class provides functions to fulfill the constraints .
+The algorithm class provides functions to modify the start or end date of the tasks .
+Application needs to keep track of the start and end times of the tasks .
+Application needs to keep track of subtasks in a task .
+Every time Start / End time of a subtask changes , the start / end time of the parent task need to change accordingly .
+Every time Start / End time for a task changes , the start / end time of one or more it s subtasks need to change as well .
+A graphic area GUI class provides a function to draw dependency .
+A graphic area GUI class uses an object of the task manager to add dependencies
+The class of dependency collection provides a function to check if the new dependency will cause a loop , each time a object of dependency class is created .
+The class of dependency collection returns an exception if there is a loop .
+GUI needs to provide ability to display critical path .
+GUI needs to provide ability to make the changes affecting critical path updated .
+The system should be able to evaluate critical path in a project .
+The human resource class contains the variable holidays .
+The human resource class provides functions to change and to get holidays .
+The human resource class provides functions to change and to get holidays .
+There can be multiple holidays .
+The holiday class provides functions to set the start / end date of the holiday .
+The holiday class provides functions to get the duration of the holiday .
+The human resource class provides a function to change the availability of the person based on holidays .
+GUI needs to provide ability to assign tasks to people .
+GUI needs to provide ability to assign people to tasks .
+GUI needs to provide ability to show utilization of a person .
+GUI needs to provide ability to show whether a person is underutilized and overbooked .
+To create a new task , an object of TaskManager class is passed to the class constructor .
+The TaskManager takes care of a resource allocation using ResourceAssignmentCollection class .
+The task class provides a public method SetStart ( ) which allows to specify starting date for the task . As input argument the method takes an object of GanttCalendar class .
+The task class provides a public method SetEnd ( ) which allows to specify ending date for the task . As input argument the method takes an object of GanttCalendar class .
+The Task class provides a public method SetDuration ( ) which allows to specify the duration of the task . As input argument the method takes an object of TaskLength class .
+To delete a task from the Calendar , the GanttProject class call delete method and supplied Task Id parameter .
+The adjustment of allocated resources and links to other tasks takes place through interfacing with the following classes DefaultMutable TreeNode , GanttTreeTableNode , TaskNode , and AdjustTaskBoundsAlgorithm .
+When deleting a task , the GanttProject class calls GanttTreeTableNode and DefaultMutable TreeNode classes to identify the parent of the deleted task .
+When deleting a task , the GanttProject class calls AdjustTaskBounds Algorithm and passes the parent of the deleted task as a parameter .
+When deleting a task , the GanttProject class calls AdjustTaskBounds Algorithm and passes the parent of the deleted task as a parameter .
+The AdjustTaskBoundsAlgorithm takes care of handling and releasing resources associated with the deleted task .
+GUI should able to provide ability to change task name .
+GUI should able to provide ability to change start / end date of a task .
+GUI should able to provide ability to set progress on a task .
+When the start / end date of a task are changed , the start / end dates of the subtasks need to change accordingly .
+To add tasks as subtasks a method which indent the selected task nodes in GUI and change them to be subtasks is used .
+A manager of task hierarchy provides functions to update the relationship between tasks .
+The manager of task hierarchy provides a method to move a task node to a specific position .
+To remove tasks as subtasks GanttTree2 class calls a method which dedent selected task nodes in GUI .
+An object of a class is used to remove relationship between selected tasks and their original parents .
+An object of a class is used to add relationship between selected tasks and their new parents .
+To remove tasks as subtasks a method which dedent selected task nodes in GUI is used .
+The task tree model provides methods to remove relationship between selected tasks and their original parents .
+The task tree model provides methods to add relationship between selected tasks and their new parents .
+Milestone has only time point of occurrence .
+User should be able to create milestones .
+User interface should be able to provide an ability to specify whether a specific task in a milestone .
+Milestone should be displayed visually differently from regular tasks .
+A GUI of task property provides interface and functions to add and remove human resource assignments by using an object of the resource assignments collection class .
+A GUI of task property provides interface and functions to add and remove human resource assignments by using an object of the resource assignments collection class .
+The human resource class contains name , phone , email , and holidays .
+The human resource class provides functions to set and get name , phone , email , and holidays .
+The human resource class provides functions to set and get name , phone , email , and holidays .
+A class is used to represent the holidays .
+The class for holidays provides functions to get the start / end date .
+The class for holidays also provides a function to check if a special date is in holiday .
+A human resource assignment class is used to represent the relationship between one task and one human resource .
+The human resource assignment class provides functions to get the task and the human resource .
+GUI needs to provide ability to delete resources from a project .
+An assignment of a resource to a task is captured as a relationship .
+When a resource is removed , all the tasks where the resource is assigned need to be updated .
+A GUI provides interface and functions to edit the properties of objects of the human resource class .
+GUI needs to provide ability to link tasks in a project .
+The fact of linking of one task to another should be captured as dependency between two tasks .
+When a two or more tasks are link , there should be check conducted for potential collisions on the chart .
+The start / end dates for the graph can be either flexible or rigid .

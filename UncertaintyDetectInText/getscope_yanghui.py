@@ -1,4 +1,7 @@
+# 1.0
 # 这个是之前毕设一直用的getscope
+# 2.0
+# 在此基础上编造yanghui的baseline
 import stanza
 from stanza.server import CoreNLPClient
 import re

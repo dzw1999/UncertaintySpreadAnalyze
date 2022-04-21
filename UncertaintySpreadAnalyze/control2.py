@@ -1,8 +1,9 @@
-import data
+# 这是毕设时候写的，检测模糊传播的程序，读取结构化信息和关联关系信息，模糊范围使用检测结果
+from UncertaintySpreadAnalyze import data
 import stanza
 from UncertaintyDetectInText import getSpeculativeWord
 from UncertaintyDetectInText import getscope
-import demo
+from UncertaintySpreadAnalyze import demo
 import re
 import pprint
 import json
@@ -154,8 +155,11 @@ def analyzeSpread(rela_result):
                     sourceRE.sourceid = targetRE.getID()
         else:
             pass
+    analyzeres=[]
     for re in myREs.values():
-        print(re.getID(),re.isUncertain,re.spread,re.sourceid)
+        analyzeres.append([re.getID(),re.isUncertain,re.spread,re.sourceid])
+        # print(re.getID(),re.isUncertain,re.spread,re.sourceid)
+    return analyzeres
 
 def readStructedRes0():
     fin=open(SReFile,"r",encoding='UTF-8')
@@ -200,6 +204,7 @@ def myreadRelations():
         rela['relationType']=relationType
         result.append(rela)
 
+# jsonload关联关系
 def readRelations():
     global result
     with open(RelationFile,"r",encoding='UTF-8') as fin:
@@ -211,9 +216,20 @@ myREs = {}
 folder=r"C:\Users\wang9\Desktop\2\\"
 SReFile=folder + "sre-4.json"
 RelationFile=folder + "rela-4.json"
-readStructedRes()
-readRelations()
-getREs(testF)
-analyzeSpread(result)
+
+
+def startAnalyze(srefile:str,relafile:str):
+    global SReFile,RelationFile
+    SReFile=srefile
+    RelationFile=relafile
+    readStructedRes()
+    readRelations()
+    getREs(testF)
+    return analyzeSpread(result)
+if __name__ == "__main__":
+    readStructedRes()
+    readRelations()
+    getREs(testF)
+    print(analyzeSpread(result))
 
 
