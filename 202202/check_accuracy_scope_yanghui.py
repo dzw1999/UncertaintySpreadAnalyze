@@ -9,7 +9,7 @@
 
 import stanza
 from UncertaintyDetectInText import getSpeculativeWord
-from UncertaintyDetectInText import getscope
+from UncertaintyDetectInText import getscope_yanghui
 from typing import List
 import json
 def readStructedRes():
@@ -34,7 +34,7 @@ def getREs(testF:List):
         i+=1
         if cues:
             for cue in cues:
-                scope = getscope.anno_sentence(text, cue)
+                scope = getscope_yanghui.anno_sentence(text, cue)
                 res = {}
                 res['sentence_id'] = id
                 res['sentence'] = text
@@ -55,10 +55,10 @@ def getREs(testF:List):
 
 result = []
 testF = []
-filename = "UAV.json"
-refolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\\"
+filename = "PURE.json"
+refolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\base\\"
 SReFile = refolder + filename
-resfolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\res\uncertainty\\"
+resfolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\res\uncertainty_yanghui\\"
 outFile = resfolder + filename
 if __name__ == "__main__":
     readStructedRes()

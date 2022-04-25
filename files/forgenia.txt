@@ -1,103 +1,138 @@
-A class is used to represent the dependency between one task and one human resource .
-The dependency class may provides functions to get the task and the human resource .
-A collection of resource assignments is used to manage the relationships between multiple human resources and a task .
-A collection of resource assignments contains multiple objects of the human resource assignment class .
-A collection of resource assignments provides functions to add and remove human resource assignments .
-A collection of resource assignments provides functions to add and remove human resource assignments .
-The task class uses an object of the assignments collection class to manage its assignments .
-The human resource class can have objects of resource assignments which assigns this resource to tasks .
-The human resource class provides function to get the list of objects of resource assignments which assigns this resource to tasks .
-Task property GUI class provides interface and functions to add and remove human resource assignments .
-Task property GUI class provides interface and functions to add and remove human resource assignments .
-A GUI class uses an object of resource tree table model class to display the resource tree .
-The resource tree table model provides functions to build subtrees based on dependencies .
-A GUI class of human resource load distribution uses objects of a load distribution class to capture the hours each person is supposed to work .
-The load distribution class provides functions to calculate the distribution based on tasks and human resources using task manager .
-GUI may provide ability to change length of a task .
-User should be able to change the length of a task by dragging - and - dropping the bar on the GUI .
-User should be able to change the length of a task via date picker control .
-A dependency class contains a dependant task and a dependee task .
-A dependency class provides functions to get the dependant task and the dependee task .
-The dependency class also contains constraint to show the start date of the dependee task .
-A class is used to represent the constraint that the start date of the dependee task should not be earlier than the end date of the dependent task .
-A collection of dependency class is used to manage dependencies .
-A collection of dependency class contains objects of dependency classes .
-A collection of dependency class provides functions to create , delete , and get dependencies .
-A collection of dependency class provides functions to create , delete , and get dependencies .
-A collection of dependency class provides functions to create , delete , and get dependencies .
-A task property GUI class provides interface and functions to add and remove dependencies by using an object of the dependency collection .
-A task property GUI class provides interface and functions to add and remove dependencies by using an object of the dependency collection .
-A graphic area GUI class provides function to draw dependency .
-A graphic area GUI class uses an object of task manager to add dependencies .
-The task manager class uses an object of dependency collection class to manage dependencies .
-An object of the recalculating task schedule algorithm class is used to change the start / end date based on dependency changes .
-The algorithm class provides functions to fulfill the constraints .
-The algorithm class provides functions to modify the start or end date of the tasks .
-Application needs to keep track of the start and end times of the tasks .
-Application needs to keep track of subtasks in a task .
-Every time Start / End time of a subtask changes , the start / end time of the parent task need to change accordingly .
-Every time Start / End time for a task changes , the start / end time of one or more it s subtasks need to change as well .
-A graphic area GUI class provides a function to draw dependency .
-A graphic area GUI class uses an object of the task manager to add dependencies
-The class of dependency collection provides a function to check if the new dependency will cause a loop , each time a object of dependency class is created .
-The class of dependency collection returns an exception if there is a loop .
-GUI needs to provide ability to display critical path .
-GUI needs to provide ability to make the changes affecting critical path updated .
-The system should be able to evaluate critical path in a project .
-The human resource class contains the variable holidays .
-The human resource class provides functions to change and to get holidays .
-The human resource class provides functions to change and to get holidays .
-There can be multiple holidays .
-The holiday class provides functions to set the start / end date of the holiday .
-The holiday class provides functions to get the duration of the holiday .
-The human resource class provides a function to change the availability of the person based on holidays .
-GUI needs to provide ability to assign tasks to people .
-GUI needs to provide ability to assign people to tasks .
-GUI needs to provide ability to show utilization of a person .
-GUI needs to provide ability to show whether a person is underutilized and overbooked .
-To create a new task , an object of TaskManager class is passed to the class constructor .
-The TaskManager takes care of a resource allocation using ResourceAssignmentCollection class .
-The task class provides a public method SetStart ( ) which allows to specify starting date for the task . As input argument the method takes an object of GanttCalendar class .
-The task class provides a public method SetEnd ( ) which allows to specify ending date for the task . As input argument the method takes an object of GanttCalendar class .
-The Task class provides a public method SetDuration ( ) which allows to specify the duration of the task . As input argument the method takes an object of TaskLength class .
-To delete a task from the Calendar , the GanttProject class call delete method and supplied Task Id parameter .
-The adjustment of allocated resources and links to other tasks takes place through interfacing with the following classes DefaultMutable TreeNode , GanttTreeTableNode , TaskNode , and AdjustTaskBoundsAlgorithm .
-When deleting a task , the GanttProject class calls GanttTreeTableNode and DefaultMutable TreeNode classes to identify the parent of the deleted task .
-When deleting a task , the GanttProject class calls AdjustTaskBounds Algorithm and passes the parent of the deleted task as a parameter .
-When deleting a task , the GanttProject class calls AdjustTaskBounds Algorithm and passes the parent of the deleted task as a parameter .
-The AdjustTaskBoundsAlgorithm takes care of handling and releasing resources associated with the deleted task .
-GUI should able to provide ability to change task name .
-GUI should able to provide ability to change start / end date of a task .
-GUI should able to provide ability to set progress on a task .
-When the start / end date of a task are changed , the start / end dates of the subtasks need to change accordingly .
-To add tasks as subtasks a method which indent the selected task nodes in GUI and change them to be subtasks is used .
-A manager of task hierarchy provides functions to update the relationship between tasks .
-The manager of task hierarchy provides a method to move a task node to a specific position .
-To remove tasks as subtasks GanttTree2 class calls a method which dedent selected task nodes in GUI .
-An object of a class is used to remove relationship between selected tasks and their original parents .
-An object of a class is used to add relationship between selected tasks and their new parents .
-To remove tasks as subtasks a method which dedent selected task nodes in GUI is used .
-The task tree model provides methods to remove relationship between selected tasks and their original parents .
-The task tree model provides methods to add relationship between selected tasks and their new parents .
-Milestone has only time point of occurrence .
-User should be able to create milestones .
-User interface should be able to provide an ability to specify whether a specific task in a milestone .
-Milestone should be displayed visually differently from regular tasks .
-A GUI of task property provides interface and functions to add and remove human resource assignments by using an object of the resource assignments collection class .
-A GUI of task property provides interface and functions to add and remove human resource assignments by using an object of the resource assignments collection class .
-The human resource class contains name , phone , email , and holidays .
-The human resource class provides functions to set and get name , phone , email , and holidays .
-The human resource class provides functions to set and get name , phone , email , and holidays .
-A class is used to represent the holidays .
-The class for holidays provides functions to get the start / end date .
-The class for holidays also provides a function to check if a special date is in holiday .
-A human resource assignment class is used to represent the relationship between one task and one human resource .
-The human resource assignment class provides functions to get the task and the human resource .
-GUI needs to provide ability to delete resources from a project .
-An assignment of a resource to a task is captured as a relationship .
-When a resource is removed , all the tasks where the resource is assigned need to be updated .
-A GUI provides interface and functions to edit the properties of objects of the human resource class .
-GUI needs to provide ability to link tasks in a project .
-The fact of linking of one task to another should be captured as dependency between two tasks .
-When a two or more tasks are link , there should be check conducted for potential collisions on the chart .
-The start / end dates for the graph can be either flexible or rigid .
+A special indication shall be shown on the dmi .
+A train shall be supervised to its static and dynamic train speed profiles .
+Actual speed shall be indicated on the dmi .
+Actual speed shall still be shown on the dmi .
+After releasing the emergency brake , etcs will provide the supervision appertaining when roll away protection was initiated .
+After the acknowledgement , the driver shall be able to continue the movement .
+An etcs equipped traction unit shall be capable of being moved in shunting without train data , track data or movement authority .
+At start up the on board equipment shall perform an automatic self - test .
+Before entering an occupied track , a driver acknowledgement shall be requested .
+Default values shall be harmonised values permanently stored in all ertms / etcs on board equipment .
+during the transition period between two operational states , the supervision provided shall at least ensure the same protection provided by the least restrictive state .
+Etcs is required to be functional to a maximum train speed of 500 km /h .
+Etcs shall be able to supervise train and shunting movements .
+Etcs shall be compatible with existing national systems listed in the ccs tsi such that it does not interfere with the national systems and is not interfered with by the national systems .
+Etcs shall calculate the permitted speed for the train for all locations of the authorised movement .
+Etcs shall supervise shunting movement to a permitted national speed value .
+Exit from shunting shall take place when the driver selects exit from shunting .
+For transitions to and from national operation , the etcs shall request an acknowledgement by the driver .
+Full supervision shall provide supervision of speed and distance .
+If acknowledgement is specified , the driver shall acknowledge transfer from full supervision to partial supervision within 5 seconds .
+If an etcs equipped train passes a level transition to a line fitted with more than one level , the onboard shall switch to the highest level according to the priority given by trackside for which it is equipped .
+If an etcs equipped train passes a level transition to one or more levels for which it is not equipped , etcs shall initiate a brake application .
+If the responsibility for the driver increases , the etcs shall seek an acknowledgement from the driver whether the train is stationary or not .
+If decided by a national value , the driver may release the etcs emergency brake when the actual speed is below the permitted speed .
+If supervised by an rbc , it shall be possible to command an emergency stop to all trains in a particular area or to a specific train .
+If the onboard fails to contact the rbc when awakening , the driver shall be asked to enter the rbc contact details .
+If the release speed is calculated on board , it shall ensure that the train will stop before reaching the danger point .
+If the train is equipped with only one operational radio , passing from one rbc to another shall still be possible but might result in a performance penalty .
+If the train is equipped with two operational radios , there shall be no performance penalty as a result of a transition from one rbc to another .
+If the train or the shunting movement exceeds the permitted ceiling speed by a certain harmonised margin , the trainborne equipment shall execute a brake intervention until the actual speed does not exceed permitted speed .
+If there are failures of the trainborne equipment which compromise the safety of train supervision , the etcs trainborne equipment shall immediately command the brake and bring the train to a stop .
+If there are failures of the trainborne equipment which compromise the safety of train supervision , the etcs trainborne equipment shall immediately command the brake and bring the train to a stop .
+In case the transition has to be acknowledged and the driver fails to acknowledge as required , the etcs shall initiate a brake application .
+In partial supervision the train shall be supervised according to train speed and distance data available .
+Information received shall not influence the traction unit with in - operative cabs .
+Information shall be shown on the dmi .
+Isolation of the etcs trainborne equipment shall disconnect the etcs trainborne equipment from the vehicle braking system .
+It shall also be possible to allow the driver to change the adhesion conditions .
+It shall be possible to command an immediate train stop .
+It shall be possible to drive the train backwards in a supervised way according to information received from trackside .
+It shall be possible to manually select shunting from stand by operation , full supervision operation or partial supervision operation .
+It shall be possible to order a train trip when passing a stop signal .
+It shall be possible to revoke a movement authority that has already been issued to a train in a co-operative way between rbc and train .
+It shall be possible to send fixed text messages from track to train .
+It shall be possible to send information on adhesion conditions from trackside .
+It shall be possible to send plain text messages from track to train .
+It shall be possible to use multiple traction units without isolating the etcs trainborne equipment on traction unit .
+It shall be possible to use tandem traction units without isolating the etcs trainborne equipment on the tandem traction unit .
+On demand the position of the front end of the train at the time of the demand shall be indicated on the dmi this shall be possible while the train is moving or stationary .
+On lines fitted with rbc , the etcs trainborne equipment shall be able to transmit the location of the entire train to the rbc .
+On request of the rbc , the driver shall have the possibility to confirm that the track ahead of him until the end of the on sight section is clear .
+Once received onboard , the national values shall remain valid even if the onboard equipment is switched off .
+Operation of the train trip shall be indicated on the dmi .
+Partial supervision shall be indicated on the dmi .
+Permission received shall be indicated to the driver .
+Reversing shall be supervised to a distance and speed set as national values .
+Route unsuitability shall be indicated on the dmi .
+Standardised output interfaces shall enable transmission of information recorded to other media for investigation .
+Stored train data shall be offered to the driver to be confirmed when data entry starts .
+The ceiling speed value for the unfitted operation shall be determined by the lower value out of .
+The character set used shall support different languages .
+The current application level shall be indicated on the dmi .
+The current operational status shall be indicated to the driver on the dmi.
+The distance supervised can be extended from the trackside .
+The dmi shall display information from national train control systems this may mean displaying the information shown by the national system .
+The dmi shall indicate the result of the self - test .
+The driver shall acknowledge the level transitions if requested from trackside if the driver does not acknowledge after the transition .
+The driver shall be able to confirm the train integrity to the rbc manually .
+The driver shall be able to consult train data when the train is stationary or moving .
+The driver shall be able to override the function when the train is stationary .
+The driver shall be able to release an etcs emergency brake application when stationary .
+The driver shall be able to select train data entry on the dmi .
+The driver shall be able to use the reversing function without needing to re-confirm the train data .
+The driver shall have the possibility to select the language this does not concern non pre-defined texts sent from the trackside .
+The driver shall know the distance to the next point defining the indicated braking curve and the permitted speed allowed this shall be shown to the driver in a way that is understandable and logical .
+The driver shall select an override control according to the permission received .
+The emergency brake shall be applied until the traction unit is stationary .
+The emergency stop shall be indicated to the driver on the dmi .
+The entry of driver identification and the selection of the language shall be possible .
+The etcs on - board shall be capable of receiving information about pantograph and power supply from the trackside .
+The etcs on - board shall be capable of receiving information regarding air tightness from the trackside .
+The etcs on - board shall be capable of receiving national values from the trackside to adapt to national requirements .
+The etcs on - board shall be capable of receiving track description from the trackside .
+The etcs on - board shall be capable of sending to the trackside train integrity information detected by a system outside etcs .
+The etcs trainborne equipment shall calculate the static train speed profile on the basis of infrastructure data and train data .
+The etcs trainborne equipment shall be able to determine the location of the entire train .
+The etcs trainborne equipment shall be capable of being isolated .
+The etcs trainborne equipment shall be capable of receiving information from the national train control systems by means of the stm .
+The etcs trainborne equipment shall be capable of supervising the following operational states .
+The etcs trainborne equipment shall indicate on the dmi the information regarding pantograph and power supply .
+The etcs trainborne equipment shall transmit its own train identification to the rbc .
+The following data may be entered manually by the driver or from train memory .
+The following data may be entered manually by the driver provided by external sources .
+The following train data shall be sent from the on board to the trackside .
+The information regarding lowering and raising of the pantograph and opening / closing of the circuit breaker shall be provided separately and in combinations .
+The new target location shall be checked for acceptance by the on board .
+The occurrence of a failure shall be displayed on the dmi .
+The on board shall be capable of sending train data to the trackside after confirmation by the driver or when entering the rbc area .
+The on board shall supervise the train against a ceiling speed .
+The onboard equipment shall display plain text messages as received .
+The release speed shall be indicated on the dmi .
+The retention period for the recorded data will be different and two levels are foreseen .
+The roll away / reverse movement intervention shall be indicated on the dmi .
+The supervised shunting speed shall be indicated to the driver on request .
+The supervised speed shall not be shown on the dmi .
+The target distance shall not be shown on the dmi unless selected by the driver .
+The target distance to be displayed on the dmi shall be based on the most restrictive braking curve .
+The test shall require no action on the part of the driver .
+The train shall as a minimum be supervised to a ceiling speed .
+The supervised speed shall not be shown on the dmi unless selected by the driver .
+The train shall be supervised according to train speed data available .
+The train shall have the capability of being supervised to a ceiling speed .
+The train shall leave partial supervision when the trainborne equipment is not operative any longer when shunting is selected or when full supervision is available .
+The trainborne equipment shall remain in full supervision until the trainborne equipment is not active any longer when shunting is selected or when partial supervision information is received .
+There shall be no discrepancy between the speed shown to the driver and the speed used for supervision of movement authorities and speed limits function .
+This ceiling speed shall not be shown continually on the dmi but may be shown momentarily when selected by the driver .
+This ceiling speed shall not be shown continually on the dmi but may be shown momentarily when selected by the driver .
+This static train speed profile shall also respect maximum line speed and track speed and special speed levels for special classes of trains .
+To prevent unauthorised use of the function , permission shall be obtained from the rbc if the train is operating under the control of the rbc .
+Train data may be entered automatically from a railway management system or from train memory .
+Trains equipped for ertms / etcs application level 3 shall be able to run on lines equipped with ertms / etcs application level 3 2 1 and 0 .
+Trains equipped for ertms / etcs application level 2 shall be able to run on lines equipped with ertms / etcs application level 2 1 and 0 .
+Trains equipped for ertms / etcs application level 1 shall be able to run on lines equipped with ertms / etcs application level 1 and 0 .
+Transferring to full supervision shall occur automatically when a movement authority and all other necessary information is received through track - to - train transmission .
+Unfitted operation shall be possible if ordered by trackside .
+Unfitted operation shall be possible if selected by the driver at start up .
+Visual and acoustic warnings to the driver about possible intervention from etcs shall be given to enable the driver to react and avoid intervention .
+When changing to a higher speed level , the rear end of the train shall respect the static train speed profile .
+When changing to a lower speed level , the front end of the train shall respect the dynamic train speed profile .
+When the etcs trainborne equipment is isolated , the system shall not show any etcs information other than the fact that the system is isolated .
+When the plain text message appears on the dmi , the driver shall be alerted .
+When the traction unit has come to a standstill , the driver shall be able to release the emergency brake .
+When the traction unit is stationary , the driver shall be required to acknowledge the train trip condition .
+When the train is stationary , the release speed calculation shall be based on the distance to the danger point .
+When the train is stationary , the condition for this change shall be defined for each target as infrastructure data .
+When the train passes the stop signal , the train trip function shall be suppressed .
+Where failure to apply the full service brake is detected , the emergency brake shall stop the train in rear of the danger point .
+Within the braking curve area , a warning shall be given to the driver to enable him to react and avoid intervention from etcs equipment at least 5 sec before the intervention .
