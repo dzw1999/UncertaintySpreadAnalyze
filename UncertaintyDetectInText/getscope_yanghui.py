@@ -352,11 +352,11 @@ def anno_sentence(text, cueinfo):
             scope, flag = getscope_child(getancestor_num(tnodestart, 3),
                                          getancestor_num(tnodestart, 2),
                                          False)
-            if cuetnode.value in scope:
-                scope = beginscope(scope, cuetnode.value)
-                pass
-            else:
-                scope = [cuetnode.value] + scope
+            # if cuetnode.value in scope:
+            #     scope = beginscope(scope, cuetnode.value)
+            #     pass
+            # else:
+            #     scope = [cuetnode.value] + scope
             # 这里本来觉得比如“potential corrections to misspelled key words”这个句子应该只有potential corrections
             # 后来一想好像还是全加吧
             '''
@@ -425,8 +425,8 @@ def anno_sentence(text, cueinfo):
                     scope, flag = getscope_child(cnodestart.pnode, cnodestart)
             else:
                 scope, flag = getscope(cnodestart, [","])
-        if cuetnode.value not in scope:
-            scope = [cuetnode.value] + scope
+        # if cuetnode.value not in scope:
+        #     scope = [cuetnode.value] + scope
         return scope
 
     def anno_nouns():
