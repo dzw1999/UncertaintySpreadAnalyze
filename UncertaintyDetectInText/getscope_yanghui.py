@@ -590,7 +590,7 @@ leafi = 0
 #     timeout=30000, memory='8G',
 #     start_server=stanza.server.StartServer.TRY_START, be_quiet=True,
 #     properties=properties)
-client = CoreNLPClient(timeout=30000, memory='8G', be_quiet=True,
+client = CoreNLPClient(timeout=30000, memory='8G', be_quiet=True, endpoint="http://localhost:9007",
                        start_server=stanza.server.StartServer.TRY_START,
                        properties='C:/Users/wang9/Desktop/gradesign/use/docs/myprop.props')
 # 吐了 有好几个坑：
