@@ -379,10 +379,11 @@ def anno_sentence(text, cueinfo):
             tnodestart = getstnode(cuetnode, "ROOT")
             scope, flag = getscope(tnodestart)
         return scope
-
+    # 已改
     def anno_advs():
         cuetnode = search_leaf_value(index, cue)
         if "advmod" not in cuetnode.dpin.keys():
+            return []
             tnodestart = getstnode(cuetnode, "ROOT")
             scope, flag = getscope(tnodestart)
             return scope
