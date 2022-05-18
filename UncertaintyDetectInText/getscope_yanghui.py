@@ -429,7 +429,7 @@ def anno_sentence(text, cueinfo):
         # if cuetnode.value not in scope:
         #     scope = [cuetnode.value] + scope
         return scope
-
+    # 已改
     def anno_nouns():
         cuetnode = search_leaf_value(index, cue)
         nthat = 0
@@ -448,6 +448,7 @@ def anno_sentence(text, cueinfo):
             tos = cuetnode.dpin["nsubj"]
             nto = len(tos)
         if "nmod" in cuetnode.dpout.keys():
+            return []
             ofs = cuetnode.dpout["nmod"]
             nof = len(ofs)
         if (nthat == 1 and nto == 0) or (nthat == 1 and nto == 1):
@@ -477,6 +478,7 @@ def anno_sentence(text, cueinfo):
             else:
                 scope = beginscope(scope, cuetnode.value)
         else:
+            return []
             tnodestart = getstnodes(cuetnode, ["S", "ROOT"])
             scope, flag = getscope(tnodestart)
             scope = beginscope(scope, cuetnode.value)
