@@ -321,7 +321,7 @@ def anno_sentence(text, cueinfo):
         # 开始标注
         scope, flag = getscope(tnodestart)
         return scope
-
+    # 已改
     def anno_adjs():
         cuetnode = search_leaf_value(index, cue)
         flag1 = "nsubj" in cuetnode.dpout.keys()
