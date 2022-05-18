@@ -55,7 +55,7 @@ def getREs(testF:List):
 
 result = []
 testF = []
-filename = "PURE.json"
+filename = "GANNT.json"
 refolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\base\\"
 SReFile = refolder + filename
 resfolder = r"C:\Users\wang9\OneDrive\文档\杂-od\小论文\data\gwz新\res\uncertainty_yanghui\\"

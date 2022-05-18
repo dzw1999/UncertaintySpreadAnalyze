@@ -543,6 +543,7 @@ def anno_sentence(text, cueinfo):
             cuetnode = search_leaf_value(index, cue)
             tnodestart = getstnode(cuetnode, "SBAR")
             if tnodestart == False:
+                return []
                 tnodestart = getstnode(cuetnode, "PP")
             scope, flag = getscope(tnodestart)
         return scope
